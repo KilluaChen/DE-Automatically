@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Drive-Easy一键创建案件
 // @namespace    http://tampermonkey.net/
-// @version      3.0.3
+// @version      3.0.4
 // @description  Drive-Easy一键创建案件,安装完成后请修改username变量为你自己的用户名
 // @author       KilluaChen
 // @match        *test.drive-easy.com/alarm-center/identify-customer*
@@ -18,7 +18,7 @@
 // ==/UserScript==
 
 (function () {
-  var username = 'Killua'
+  var username = 'Test'
   var is_submit = false
   $(document.body).append('<div style=\'position: fixed;top: 19px;right: 36%;z-index: 999;padding: 5px;\'><button id=\'killua_fill\' style=\'font-size:17px; color: green;border-radius: 3px;\'>&nbsp;Fill&Commit&nbsp;</button></div>')
   $('#killua_fill').click(function () {
