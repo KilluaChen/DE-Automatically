@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Drive-Easy一键创建案件
 // @namespace    http://tampermonkey.net/
-// @version      4.0.1
+// @version      4.0.2
 // @description  Drive-Easy一键创建案件,安装完成后请修改填充数据
 // @author       KilluaChen
 // @match        *test.drive-easy.com/alarm-center/identify-customer*
@@ -65,8 +65,8 @@
       $('#problem_description').val('问题描述...' + username + '_test')
       $('#fk_fault_type_id').val(2).change()
       $('#car_color').val('宝石蓝')
-      $('select[name="fuel_type"').val('U')
-      $('select[name="transmission_type"').val('M')
+      $('select[name="fuel_type"]').val('U')
+      $('select[name="transmission_type"]').val('M')
       $('#created_on').val('12-09-2015')
       $('#coverage_start_date').val('01-01-2018')
       $('#coverage_end_date').val('12-12-2028')
