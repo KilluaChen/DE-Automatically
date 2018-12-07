@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Drive-Easy一键创建案件
 // @namespace    http://tampermonkey.net/
-// @version      4.0.4
+// @version      4.0.5
 // @description  Drive-Easy一键创建案件,安装完成后请修改填充数据
 // @author       KilluaChen
 // @match        *test.drive-easy.com/alarm-center/identify-customer*
@@ -31,6 +31,7 @@
     var address = '阿勒泰地区哈巴河县阿克齐镇人民政府';//故障地址
     var service_type = 6;//3路边维修,6平板拖车
     var is_submit = false;//是否可提交数据
+    var contract_id = 8; //合同,8:测试合同,110:太保路修,111:太保50
     $(document.body).append('<div style=\'position: fixed;top: 19px;right: 36%;z-index: 999;padding: 5px;\'><button id=\'killua_fill\' style=\'font-size:17px; color: green;border-radius: 3px;\'>&nbsp;Fill&Commit&nbsp;</button></div>')
     $('#killua_fill').click(function () {
         var location = window.location.href
@@ -48,9 +49,9 @@
             $('#user_mobile_number2').val('13800138000')
             $('#country_code2').val('+852')
             $('#is_assumed_coverage').click()
-            $('#client_id').val(8).change()
-            $('#client_case_no').val('test_case_no_123456')
-            $('#policy_number').val('test_baodanhao_123456')
+            $('#client_id').val(contract_id).change()
+            $('#client_case_no').val(username + '_' + Math.ceil(Math.random() * 100000000000))
+            $('#policy_number').val(username + '_PN_' + Math.ceil(Math.random() * 100000000000))
         }
         if (location.indexOf('customer-location') !== -1) {
             $('#searchInput').val(address)
