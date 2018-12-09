@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Drive-Easy一键创建案件
+// @name         DE-Automatically create case
 // @namespace    http://tampermonkey.net/
-// @version      4.0.5
+// @version      4.0.6
 // @description  Drive-Easy一键创建案件,安装完成后请修改填充数据
 // @author       KilluaChen
 // @match        *test.drive-easy.com/alarm-center/identify-customer*
