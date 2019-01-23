@@ -1,38 +1,29 @@
 // ==UserScript==
 // @name         DE-Automatically create case
 // @namespace    http://tampermonkey.net/
-// @version      4.0.6
+// @version      5.0.0
 // @description  Drive-Easy一键创建案件,安装完成后请修改填充数据
 // @author       KilluaChen
-// @match        *test.drive-easy.com/alarm-center/identify-customer*
-// @match        *test.drive-easy.com/alarm-center/customer-location*
-// @match        *test.drive-easy.com/alarm-center/identify-problem*
-// @match        *://54.222.236.241/*/alarm-center/identify-customer*
-// @match        *://54.222.236.241/*/alarm-center/customer-location*
-// @match        *://54.222.236.241/*/alarm-center/identify-problem*
-// @match        *://52.81.52.224/alarm-center/identify-customer*
-// @match        *://52.81.52.224/alarm-center/customer-location*
-// @match        *://52.81.52.224/alarm-center/identify-problem*
-// @match        *://52.81.60.53/*/alarm-center/identify-customer*
-// @match        *://52.81.60.53/*/alarm-center/customer-location*
-// @match        *://52.81.60.53/*/alarm-center/identify-problem*
-// @match        https://www.drive-easy.cn/*/alarm-center/identify-customer*
-// @match        https://www.drive-easy.cn/*/alarm-center/customer-location*
-// @match        https://www.drive-easy.cn/*/alarm-center/identify-problem*
+// @match        */alarm-center/identify-customer*
+// @match        */alarm-center/customer-location*
+// @match        */alarm-center/identify-problem*
+// @match        */axaChina/alarm-center/identify-customer*
+// @match        */axaChina/alarm-center/customer-location*
+// @match        */axaChina/alarm-center/identify-problem*
 
 
 // @grant        none
 // ==/UserScript==
 
-(function () {
+(function() {
     var username = '';//名
     var last_name = '';//姓
     var mobile_number = '';//手机号码
     var address = '阿勒泰地区哈巴河县阿克齐镇人民政府';//故障地址
     var service_type = 6;//3路边维修,6平板拖车
     var is_submit = false;//是否可提交数据
-    var contract_id = 8; //合同,8:测试合同,110:太保路修,111:太保50
-    $(document.body).append('<div style=\'position: fixed;top: 19px;right: 36%;z-index: 999;padding: 5px;\'><button id=\'killua_fill\' style=\'font-size:17px; color: green;border-radius: 3px;\'>&nbsp;Fill&Commit&nbsp;</button></div>')
+    var contract_id =8; //合同,8:测试合同,110:太保路修,111:太保50
+    $(document.body).append('<div style=\'position: fixed;top: 19px;right: 43%;z-index: 999;padding: 5px;\'><button id=\'killua_fill\' style=\'font-size:17px; color: green;border-radius: 3px;\'>&nbsp;Fill&Commit&nbsp;</button></div>')
     $('#killua_fill').click(function () {
         var location = window.location.href
         if (location.indexOf('identify-customer') !== -1) {
@@ -52,6 +43,7 @@
             $('#client_id').val(contract_id).change()
             $('#client_case_no').val(username + '_' + Math.ceil(Math.random() * 100000000000))
             $('#policy_number').val(username + '_PN_' + Math.ceil(Math.random() * 100000000000))
+            $('#policy_number').val('test_baodanhao_123456')
         }
         if (location.indexOf('customer-location') !== -1) {
             $('#searchInput').val(address)
