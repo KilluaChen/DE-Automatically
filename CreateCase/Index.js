@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DE-Automatically create case
 // @namespace    http://tampermonkey.net/
-// @version      5.0.0
+// @version      5.0.1
 // @description  Drive-Easy一键创建案件,安装完成后请修改填充数据
 // @author       KilluaChen
 // @match        */alarm-center/identify-customer*
@@ -10,6 +10,9 @@
 // @match        */axaChina/alarm-center/identify-customer*
 // @match        */axaChina/alarm-center/customer-location*
 // @match        */axaChina/alarm-center/identify-problem*
+// @match        */axaPre/alarm-center/identify-customer*
+// @match        */axaPre/alarm-center/customer-location*
+// @match        */axaPre/alarm-center/identify-problem*
 
 
 // @grant        none
@@ -35,7 +38,7 @@
             var date = new Date()
             var month = (date.getMonth() + 1)
             $('#user_first_name').val('test_' + username + '_' + month + '_' + date.getDate())
-            $('#user_last_name').val('Chen')
+            $('#user_last_name').val(last_name)
             $('#user_mobile_number').val(mobile_number)
             $('#user_mobile_number2').val('13800138000')
             $('#country_code2').val('+852')
